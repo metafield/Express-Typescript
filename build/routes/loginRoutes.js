@@ -8,11 +8,12 @@ router.get('/login', function (req, res) {
 });
 router.post('/login', function (req, res) {
     var _a = req.body, email = _a.email, password = _a.password;
-    if (email) {
-        res.send(email.toLocaleUpperCase());
+    if (email && password && email === 'hey@hey.com' && password === 'pass') {
+        req.session = { loggedIn: true };
+        res.redirect('/');
     }
     else {
         res.statusCode = 422;
-        res.send('Please provide a valid email');
+        res.send('invalid email or password');
     }
 });
