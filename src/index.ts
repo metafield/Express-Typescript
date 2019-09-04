@@ -1,17 +1,12 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response } from 'express'
+import { router } from './routes/loginRoutes'
 
-const app = express();
+const app = express()
 
-app.get("/", (req: Request, res: Response) => {
-  res.send(`
-    <div>
-      <h1> Hi there! </h1>
-    </div>
-  `);
-});
+app.use(router)
 
-const port = 3000;
+const port = 3000
 
 app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-});
+  console.log(`listening on port ${port}`)
+})
