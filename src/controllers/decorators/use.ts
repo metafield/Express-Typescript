@@ -10,7 +10,8 @@ export function use(middleware: RequestHandler) {
     Reflect.defineMetadata(
       MetadataKeys.Middleware,
       [...middlewares, middleware],
-      target
+      target,
+      key
     );
   };
 }

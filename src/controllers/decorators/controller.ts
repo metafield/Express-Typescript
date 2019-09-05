@@ -23,6 +23,8 @@ export function controller(routePrefix: string) {
         Reflect.getMetadata(MetadataKeys.Middleware, target.prototype, key) ||
         [];
 
+      console.log('middlewares in cont: ', middlewares);
+
       if (path) {
         router[method](`${routePrefix}${path}`, ...middlewares, routeHandler);
       }
