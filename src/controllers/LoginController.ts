@@ -1,7 +1,8 @@
-import {Request, Response} from 'express'
+import { Request, Response } from 'express';
 import { get } from './decorators/routes';
+import { controller } from './decorators/controller';
 
-@controller('/')
+@controller('/auth')
 class LoginConroller {
   @get('/login')
   getLogin(req: Request, res: Response): void {
@@ -16,7 +17,6 @@ class LoginConroller {
         <input name="password" type="password" />
       </div>
       <button>Submit</button>
-    </form>
-    `);
-  });
+    </form>`);
+  }
 }
